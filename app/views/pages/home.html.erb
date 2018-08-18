@@ -6,5 +6,26 @@
   </head>
   <body>
      <h1>Bem-vindo a home</h1>
+     <% if user_signed_in? %>
+      olá, <%= current_user.email %>
+      <br>
+      <hr>
+      <h2> Lista de tweets</h2>
+
+      <%= form_for @tweet do |f| %>
+          <%= f.text_field :content %>
+          <%= f.submit %>
+      <% end %>
+
+      <ul>
+        <% current_user.tweets.each do |tweet| %>
+        <li> <%= tweet.content %> </li>
+        <% end %>
+      </ul>
+      <br>
+      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+     <%else%>
+     <%=  link_to 'Login' ,  new_user_session_path%>
+     <% end %>
   </body>
 </html>

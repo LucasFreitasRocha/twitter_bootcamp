@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Usuario</title>
+  </head>
+  <body>
+    <h1>Usuários</h1>
+    <% n = 1%>
+    <%@users.each do |user| %>
+      <%= n %>
+      <%= link_to user.email, user_path(user) %>
+      <% n += 1%>
+      <br>
+    <% end %>
+  </body>
+</html>
