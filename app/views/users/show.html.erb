@@ -7,7 +7,9 @@
   <body>
     <h1>perfil do <%= @user.email%></h1>
     <h2> tweets (<%= @user.tweets.count %>)</h2>
-    <ul>
+    
+
+      <ol>
       <% if @user.tweets.empty? %>
         <p> Usuario ainda não tem tweets</p>
       <% else %>
@@ -15,6 +17,6 @@
         <li> <%= tweet.content %> </li>
         <% end %>
       <%end%>
-    </ul>
+      </ol>
   </body>
 </html>
