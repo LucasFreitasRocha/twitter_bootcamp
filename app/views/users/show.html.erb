@@ -7,8 +7,8 @@
   <body>
     <h1>perfil do <%= @user.email%></h1>
     <h2> tweets (<%= @user.tweets.count %>)</h2>
-    
 
+    <%= link_to 'seguir', relationships_path(id: @user.id), method: :post %>
       <ol>
       <% if @user.tweets.empty? %>
         <p> Usuario ainda não tem tweets</p>
