@@ -8,6 +8,11 @@ class RelationshipsController < ApplicationController
     else
         redirect_to user_path(@user), alert: 'Usuário já sendo seguido'
     end
+  end
+  def destroy
+     @user = User.find(params[:id])
+     current_user.unfollow!(@user)
+     redirect_to user_path(@user), notice: 'parou de seguir com sucesso'
 
   end
 
